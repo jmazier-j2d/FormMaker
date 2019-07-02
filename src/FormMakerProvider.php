@@ -27,16 +27,20 @@ class FormMakerProvider extends ServiceProvider
         |--------------------------------------------------------------------------
         */
 
+        // Form Maker
         Blade::directive('form_maker_table', function ($expression) {
             return "<?php echo FormMaker::fromTable($expression); ?>";
         });
-         Blade::directive('form_maker_array', function ($expression) {
+
+        Blade::directive('form_maker_array', function ($expression) {
             return "<?php echo FormMaker::fromArray($expression); ?>";
         });
-         Blade::directive('form_maker_object', function ($expression) {
+
+        Blade::directive('form_maker_object', function ($expression) {
             return "<?php echo FormMaker::fromObject($expression); ?>";
         });
-         Blade::directive('form_maker_columns', function ($expression) {
+
+        Blade::directive('form_maker_columns', function ($expression) {
             return "<?php echo FormMaker::getTableColumns($expression); ?>";
         });
 
@@ -44,7 +48,8 @@ class FormMakerProvider extends ServiceProvider
         Blade::directive('input_maker_label', function ($expression) {
             return "<?php echo InputMaker::label($expression); ?>";
         });
-         Blade::directive('input_maker_create', function ($expression) {
+
+        Blade::directive('input_maker_create', function ($expression) {
             return "<?php echo InputMaker::create($expression); ?>";
         });
     }
@@ -86,37 +91,5 @@ class FormMakerProvider extends ServiceProvider
         // Thrid party
         $loader->alias('Form', \Collective\Html\FormFacade::class);
         $loader->alias('HTML', \Collective\Html\HtmlFacade::class);
-
-        /*
-        |--------------------------------------------------------------------------
-        | Blade Directives
-        |--------------------------------------------------------------------------
-        */
-
-        // Form Maker
-        Blade::directive('form_maker_table', function ($expression) {
-            return "<?php echo FormMaker::fromTable($expression); ?>";
-        });
-
-        Blade::directive('form_maker_array', function ($expression) {
-            return "<?php echo FormMaker::fromArray($expression); ?>";
-        });
-
-        Blade::directive('form_maker_object', function ($expression) {
-            return "<?php echo FormMaker::fromObject($expression); ?>";
-        });
-
-        Blade::directive('form_maker_columns', function ($expression) {
-            return "<?php echo FormMaker::getTableColumns($expression); ?>";
-        });
-
-        // Label Maker
-        Blade::directive('input_maker_label', function ($expression) {
-            return "<?php echo InputMaker::label($expression); ?>";
-        });
-
-        Blade::directive('input_maker_create', function ($expression) {
-            return "<?php echo InputMaker::create($expression); ?>";
-        });
     }
 }
